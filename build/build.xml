@@ -49,7 +49,7 @@
                    <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
            </target>
            
-           <!--
+           
     <target name="run-junit" depends="compile">
     	<junit printsummary="on" showoutput="yes" >
     		<test name="${test-class}"/>
@@ -62,11 +62,11 @@
         <fileset dir="${test-reports}">
         <include name="TEST-*.xml"/>
           </fileset>
-        <report format="frames" todir="${test-reports}"/>
+        <report todir="${test-reports}"/>
       </junitreport>
     </target>
     
--->
+<!--
     <target name="run-junit" depends="compile">
        <junit printsummary="yes">
          <classpath>
@@ -84,12 +84,12 @@
          <fileset dir="${test-reports}">
          <include name="TEST-*.xml"/>
            </fileset>
-         <report format="frames" todir="${test-reports}"/>
+         <report todir="${test-reports}"/>
        </junitreport>
        
     </target>
 
-
+-->
     
            <target name="jar" depends="run-junit">
                <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
@@ -107,6 +107,3 @@
             <echo>Finished the job</echo>
         </target>
        </project>
-
-
-
