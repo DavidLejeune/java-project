@@ -65,7 +65,15 @@
 					          </batchtest>-->
                     
                     
-                   <test name="${test-class}" todir="${test-reports}"/>
+                   <test name="${test-class}" todir="${test-reports}">
+                   
+                   </test>
+                   <batchtest fork="yes" todir="${test-reports}">
+				    <fileset dir="${src}">
+				      <include name="**/*Test*.java"/>
+				      <exclude name="**/AllTests.java"/>
+				    </fileset>
+				  </batchtest>
                   
                   
                </junit>
