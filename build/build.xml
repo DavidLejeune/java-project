@@ -3,9 +3,10 @@
  
    
    <!-- set global properties for this build -->
-    <property name="reports-tests" location="./test-reports/"/>
+    <property name="test-reports/" location="./test-reports/"/>
     <property name="bin" location="./bin"/>
     <property name="src" location="./src"/>
+    <property name="jar" location="./jar"/>
     <property name="job-build" location="../"/>
 
     <property name="main-class"  value="javaunittestapp.code.JavaUnittestApp"/>
@@ -16,7 +17,7 @@
 
 
     <target name="delete">
-            <delete dir="${reports-test}"/>
+            <delete dir="${test-reports/}"/>
             <delete dir="${bin}"/>
             <delete dir="${src}"/>
     </target>
