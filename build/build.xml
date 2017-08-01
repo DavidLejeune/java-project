@@ -51,7 +51,7 @@
            
            
     <target name="run-junit" depends="compile">
-    	<junit printsummary="on" showoutput="yes" >
+    	<junit printsummary="on" showoutput="yes" haltonfailure="yes">
     		<test name="${test-class}"/>
     		<classpath>
     			<pathelement location="${junit-jar}"></pathelement>
