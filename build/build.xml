@@ -10,8 +10,8 @@
         <property name="staging" location="./staging"/>
         <property name="job-build" location="../"/>
     
-        <property name="main-class"  value="javaunittestapp.code.Customer"/>
-        <property name="test-class"  value="javaunittestapp.test.TestCustomer"/>
+        <property name="main-class"  value="be.qbmt.code.Customer"/>
+        <property name="test-class"  value="be.qbmt.test.TestCustomer"/>
         <property name="app-name"  value="APP-NAME"/>
         <property name="junit-jar" location="../lib/junit.jar"/>
     
