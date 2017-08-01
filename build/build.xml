@@ -24,7 +24,6 @@
             <delete dir="${bin}"/>
             <delete dir="${src}"/>
             <delete dir="${jar}"/>
-            <delete dir="${staging}"/>
     </target>
 
     <target name="create" depends="delete">
@@ -32,7 +31,6 @@
             <mkdir dir="${bin}"/>
             <mkdir dir="${src}"/>
             <mkdir dir="${jar}"/>
-            <mkdir dir="${staging}"/>
     </target>
 
 
@@ -53,6 +51,8 @@
 
 
 <target name="run-junit" depends="compile">
+		<echo>${junit-jar}</echo>
+		<echo>${bin}</echo>
 	<junit>
 		<test name="${test-class}" />
 		<classpath>
