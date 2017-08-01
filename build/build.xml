@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JavaUnittestAppANT" default="inform">
+
+<target name="compile">
+	<javac srcdir="/src" destdir="staging"
+</target>
+
+<target name="runjunit" depends="compile"></target>
+
+<target name="inform">
+<echo>Finished</echo>
+</target>
+
+
+</project>

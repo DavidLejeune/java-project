@@ -5,7 +5,6 @@
  */
 package javaunittestapp.test;
 import javaunittestapp.code.JavaUnittestApp;
-import static junit.framework.Assert.assertEquals;
 import junit.framework.TestCase;
 
 
