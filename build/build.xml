@@ -50,7 +50,7 @@
            </target>
 
 
-           <target name="run-junit" >
+           <target name="run-junit" depends="compile" >
                <junit>
                    <classpath>
                        <pathelement location="./junit.jar"/>
