@@ -7,6 +7,7 @@
     <property name="bin" location="./bin"/>
     <property name="src" location="./src"/>
     <property name="jar" location="./jar"/>
+    <property name="staging" location="./staging"/>
     <property name="job-build" location="../"/>
 
     <property name="main-class"  value="javaunittestapp.code.JavaUnittestApp"/>
@@ -22,13 +23,16 @@
             <delete dir="${test-reports}"/>
             <delete dir="${bin}"/>
             <delete dir="${src}"/>
+            <delete dir="${jar}"/>
+            <delete dir="${staging}"/>
     </target>
 
     <target name="create" depends="delete">
             <mkdir dir="${test-reports}"/>
             <mkdir dir="${bin}"/>
             <mkdir dir="${src}"/>
-            <mkdir dir="${src}"/>
+            <mkdir dir="${jar}"/>
+            <mkdir dir="${staging}"/>
     </target>
 
 
@@ -44,7 +48,7 @@
        </target>-->
 
        <target name="compile" depends="copy">
-               <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
+               <javac includeantruntime="false" srcdir="${src}" destdir="${staging}" classpath="${junit-jar}"/>
        </target>
 
 
@@ -53,7 +57,7 @@
 		<test name="${test-class}" />
 		<classpath>
 			<pathelement location="${junit-jar}"></pathelement>
-			<pathelement location="${bin}"></pathelement>
+			<pathelement location="${staging}"></pathelement>
 		</classpath>
 	</junit>
 </target>
