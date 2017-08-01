@@ -58,14 +58,14 @@
                 <formatter type="plain" usefile="false" /><!--  to screen -->
                     <formatter type="xml" /><!-- to file  -->
                     
-                             <batchtest todir="${test-reports}">
+                             <!-- <batchtest todir="${test-reports}">
 					            <fileset dir="${src}">
 					               <include name="*Test.java"/>
 					            </fileset>
-					          </batchtest>
+					          </batchtest>-->
                     
                     
-                  <!--  <test name = "${test-class}" todir="${test-reports}"/>-->
+                   <test name="${test-class}" todir="${test-reports}"/>
                   
                   
                </junit>
