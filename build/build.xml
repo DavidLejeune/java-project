@@ -1,82 +1,102 @@
 <?xml version="1.0"?>
- <project name="java-project" default="inform" basedir=".">
- 
-   
-   <!-- set global properties for this build -->
-    <property name="test-reports" location="./test-reports"/>
-    <property name="bin" location="./bin"/>
-    <property name="src" location="./src"/>
-    <property name="jar" location="./jar"/>
-    <property name="staging" location="./staging"/>
-    <property name="job-build" location="../"/>
-
-    <property name="main-class"  value="javaunittestapp.code.JavaUnittestApp"/>
-    <property name="test-class"  value="javaunittestapp.test.TestJavaUnittestApp"/>
-    <property name="app-name"  value="APP-NAME"/>
-    <property name="junit-jar" location="../lib/junit.jar"/>
-
-
-
-
-
-    <target name="delete">
-            <delete dir="${test-reports}"/>
-            <delete dir="${bin}"/>
-            <delete dir="${src}"/>
-            <delete dir="${jar}"/>
-    </target>
-
-    <target name="create" depends="delete">
-            <mkdir dir="${test-reports}"/>
-            <mkdir dir="${bin}"/>
-            <mkdir dir="${src}"/>
-            <mkdir dir="${jar}"/>
-    </target>
-
-
-   <target name="copy" depends="create">
-           <copydir dest="${src}" src="../" excludes="**/build/**" />
-           <copy todir="${src}" overwrite="true">
-                   <fileset dir="./src" includes="**/*.jar"></fileset>
-           </copy>
-   </target>
-
-      <!--<target name="compile" depends="copy">
-           <javac srcdir="${src}" destdir="${bin}"/>
-       </target>-->
-
-       <target name="compile" depends="copy">
-               <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
+     <project name="java-project" default="inform" basedir=".">
+     
+       
+       <!-- set global properties for this build -->
+        <property name="test-reports" location="./test-reports"/>
+        <property name="bin" location="./bin"/>
+        <property name="src" location="./src"/>
+        <property name="jar" location="./jar"/>
+        <property name="staging" location="./staging"/>
+        <property name="job-build" location="../"/>
+    
+        <property name="main-class"  value="javaunittestapp.code.JavaUnittestApp"/>
+        <property name="test-class"  value="javaunittestapp.test.TestJavaUnittestApp"/>
+        <property name="app-name"  value="APP-NAME"/>
+        <property name="junit-jar" location="../lib/junit.jar"/>
+    
+    
+    
+    
+    
+        <target name="delete">
+                <delete dir="${test-reports}"/>
+                <delete dir="${bin}"/>
+                <delete dir="${src}"/>
+                <delete dir="${jar}"/>
+        </target>
+    
+        <target name="create" depends="delete">
+                <mkdir dir="${test-reports}"/>
+                <mkdir dir="${bin}"/>
+                <mkdir dir="${src}"/>
+                <mkdir dir="${jar}"/>
+        </target>
+    
+    
+       <target name="copy" depends="create">
+               <copydir dest="${src}" src="../" excludes="**/build/**" />
+               <copy todir="${src}" overwrite="true">
+                       <fileset dir="./src" includes="**/*.jar"></fileset>
+               </copy>
        </target>
-
-
-<target name="run-junit" depends="compile">
-		<echo>${junit-jar}</echo>
-		<echo>${bin}</echo>
-	<junit printsummary="on">
-		<test name="${test-class}"/>
-		<classpath>
-			<pathelement location="${junit-jar}"></pathelement>
-			<pathelement location="${bin}"></pathelement>
-		</classpath>
-	</junit>
-</target>
-
-
-
-       <target name="jar" depends="run-junit">
-           <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
-               <manifest>
-                   <attribute name="Main-Class" value="${main-class}"/>
-               </manifest>
-           </jar>
-       </target>
-
-       <target name="run" depends="jar">
-           <java jar="${jar}/${app-name}.jar" fork="true"/>
-       </target>
-
-    <target name="inform" depends="run">
-        <echo>Finished the job</echo>
+    
+          <!--<target name="compile" depends="copy">
+               <javac srcdir="${src}" destdir="${bin}"/>
+           </target>-->
+    
+           <target name="compile" depends="copy">
+                   <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
+           </target>
+    
+    <!--
+    <target name="run-junit" depends="compile">
+    	<junit printsummary="on">
+    		<test name="${test-class}"/>
+    		<classpath>
+    			<pathelement location="${junit-jar}"></pathelement>
+    			<pathelement location="${bin}"></pathelement>
+    		</classpath>
+    	</junit>
     </target>
-   </project>
+-->
+
+    <target name="run-junit" depends="compile">
+       <junit haltonfailure="no" showoutput="no" printsummary="yes">
+         <formatter type="xml"/>
+         <classpath>
+            <pathelement location="${src}"/>
+            <path refid="*.java"/>
+         </classpath>
+         <batchtest todir="${test-reports}">
+            <fileset dir="${src}">
+               <include name="*.java"/>
+            </fileset>
+          </batchtest>
+       </junit>
+       <junitreport todir="${test-reports}">
+         <fileset dir="${test-reports}">
+         <include name="TEST-*.xml"/>
+           </fileset>
+         <report format="frames" todir="${test-reports}"/>
+       </junitreport>
+    </target>
+    
+    
+    
+           <target name="jar" depends="run-junit">
+               <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
+                   <manifest>
+                       <attribute name="Main-Class" value="${main-class}"/>
+                   </manifest>
+               </jar>
+           </target>
+    
+           <target name="run" depends="jar">
+               <java jar="${jar}/${app-name}.jar" fork="true"/>
+           </target>
+    
+        <target name="inform" depends="run">
+            <echo>Finished the job</echo>
+        </target>
+       </project>
