@@ -55,7 +55,7 @@
 		        	<formatter type="plain" usefile="false" /><!--  to screen -->
                     <formatter type="xml" />
                     
-		                <test name="${test-class}"/>
+		                <test name="${test-class}" todir="${test-reports}"/>
 		                <classpath>
 		                        <pathelement location="${junit-jar}"></pathelement>
 		                        <pathelement location="${bin}"></pathelement>
