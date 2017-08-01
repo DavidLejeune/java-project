@@ -19,7 +19,7 @@ public class TestJavaUnittestApp extends TestCase{
         JavaUnittestApp customer1 = new JavaUnittestApp();
         customer1.setFirstName("John");
         customer1.setLastName("Doe");
-        assertEquals("John Doe" , customer1.getCustomerName());
+        assertEquals("John Doeeeeeeeeeeeeeeeeeeeeeeee" , customer1.getCustomerName());
     }
     
     
