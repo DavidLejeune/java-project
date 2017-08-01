@@ -9,7 +9,7 @@ package javaunittestapp.code;
  *
  * @author David
  */
-public class JavaUnittestApp {
+public class Customer {
 
     String firstName = null;
     String lastName = null;
