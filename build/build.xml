@@ -44,7 +44,7 @@
        </target>-->
 
        <target name="compile" depends="copy">
-               <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar"/>
+               <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
        </target>
 
 
