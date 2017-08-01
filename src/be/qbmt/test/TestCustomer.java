@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaunittestapp.test;
-import javaunittestapp.code.Customer;
+package be.qbmt.test;
+import be.qbmt.code.Customer;
 import junit.framework.TestCase;
 
 /**
