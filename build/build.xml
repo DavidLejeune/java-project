@@ -62,48 +62,7 @@
                </junit>
            </target>
            
-        <!--   
-    <target name="run-junit" depends="compile">
-    	<junit printsummary="on" showoutput="yes" >
-    		<test name="${test-class}"/>
-    		<classpath>
-    			<pathelement location="${junit-jar}"></pathelement>
-    			<pathelement location="${bin}"></pathelement>
-    		</classpath>
-    	</junit>
-      <junitreport todir="${test-reports}">
-        <fileset dir="${test-reports}">
-        <include name="TEST-*.xml"/>
-          </fileset>
-        <report todir="${test-reports}"/>
-      </junitreport>
-    </target>-->
-    
-<!--
-    <target name="run-junit" depends="compile">
-       <junit printsummary="yes">
-         <classpath>
-            <path refid="${test-class}"/>
-         </classpath>
-           <formatter type="xml"/>
-         <batchtest todir="${test-reports}">
-            <fileset dir="${src}">
-               <include name="*Test.java"/>
-            </fileset>
-          </batchtest>
-       </junit>
-       
-       <junitreport todir="${test-reports}">
-         <fileset dir="${test-reports}">
-         <include name="TEST-*.xml"/>
-           </fileset>
-         <report todir="${test-reports}"/>
-       </junitreport>
-       
-    </target>
-
--->
-    
+   
            <target name="jar" depends="run-junit">
                <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
                    <manifest>
