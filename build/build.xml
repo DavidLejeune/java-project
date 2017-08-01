@@ -53,8 +53,8 @@
 <target name="run-junit" depends="compile">
 		<echo>${junit-jar}</echo>
 		<echo>${bin}</echo>
-	<junit>
-		<test name="${test-class}" />
+	<junit printsummary="on">
+		<test name="${test-class}"/>
 		<classpath>
 			<pathelement location="${junit-jar}"></pathelement>
 			<pathelement location="${bin}"></pathelement>
