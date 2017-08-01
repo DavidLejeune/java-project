@@ -13,7 +13,7 @@ import junit.framework.TestCase;
  *
  * @author David
  */
-public class TestJavaUnittestApp {
+public class TestJavaUnittestApp extends TestCase{
     
     
     public void testGetCustomerName() {
