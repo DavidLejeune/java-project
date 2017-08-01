@@ -27,6 +27,12 @@ public class TestCustomer extends TestCase{
         customer2.setLastName("Presley");
         assertEquals("Elvis Presley" , customer2.getCustomerName());
     }
-    
+
+    public void testGetCustomerName3() {
+        Customer customer3 = new Customer();
+        customer3.setFirstName("Abu Bakr");
+        customer3.setLastName("Al Bagdadi");
+        assertEquals("KIA" , customer3.getCustomerName());
+    }
     
 }
