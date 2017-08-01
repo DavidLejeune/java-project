@@ -22,7 +22,7 @@ public class JavaUnittestApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-                //System.out.println("Hello World new");
+                System.out.println("Hello JavaUnittestApp");
     }
     
     public String getCustomerName() {
