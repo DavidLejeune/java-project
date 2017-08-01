@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+     <project name="java-project" default="inform" basedir=".">
+     
+       
+       <!-- set global properties for this build -->
+        <property name="test-reports" location="./test-reports"/>
+        <property name="bin" location="./bin"/>
+        <property name="src" location="./src"/>
+        <property name="jar" location="./jar"/>
+        <property name="staging" location="./staging"/>
+        <property name="job-build" location="../"/>
+    
+        <property name="main-class"  value="be.qbmt.code.Customer"/>
+        <property name="test-class"  value="be.qbmt.test.TestCustomer"/>
+        <property name="app-name"  value="APP-NAME"/>
+        <property name="junit-jar" location="../lib/junit.jar"/>
+    
+              <target name="jar">
+               <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
+                   <manifest>
+                       <attribute name="Main-Class" value="${main-class}"/>
+                   </manifest>
+               </jar>
+           </target>
+    
+           <target name="run" depends="jar">
+               <java jar="${jar}/${app-name}.jar" fork="true"/>
+           </target>
+    
+        <target name="inform" depends="run">
+            <echo>Finished the job</echo>
+        </target>
+       </project>

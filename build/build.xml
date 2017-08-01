@@ -61,7 +61,7 @@
 		                        <pathelement location="${bin}"></pathelement>
 		                </classpath>
 		        </junit>
-		 </target>
+		 	</target>
            
            
            
