@@ -52,11 +52,22 @@
                    <classpath>
                        <pathelement location="./junit.jar"/>
                         <!--  <pathelement location="./ant-junit4-1.10.1.jar"/>-->
-                   </classpath>         
+                   </classpath> 
+                           
           
                 <formatter type="plain" usefile="false" /><!--  to screen -->
                     <formatter type="xml" /><!-- to file  -->
-                   <test name = "${test-class}" todir="${test-reports}"/>
+                    
+                             <batchtest todir="${test-reports}">
+					            <fileset dir="${src}">
+					               <include name="*Test.java"/>
+					            </fileset>
+					          </batchtest>
+                    
+                    
+                  <!--  <test name = "${test-class}" todir="${test-reports}"/>-->
+                  
+                  
                </junit>
            </target>
            
