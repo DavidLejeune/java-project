@@ -41,10 +41,7 @@
                </copy>
        </target>
     
-          <!--<target name="compile" depends="copy">
-               <javac srcdir="${src}" destdir="${bin}"/>
-           </target>-->
-    
+  
            <target name="compile" depends="copy">
                    <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
            </target>
@@ -54,14 +51,17 @@
                <junit>
                    <classpath>
                        <pathelement location="./junit.jar"/>
-                       <pathelement location="./ant-junit4-1.10.1.jar"/>
-                   </classpath>
-                   <formatter type="plain" usefile="false" /> <!-- to screen -->
-                   <formatter type="xml" /> <!-- to file -->
+                        <!--  <pathelement location="./ant-junit4-1.10.1.jar"/>-->
+                   </classpath>         
+          
+                <formatter type="plain" usefile="false" /><!--  to screen -->
+                    <formatter type="xml" /><!-- to file  -->
                    <test name = "${test-class}" todir="${test-reports}"/>
                </junit>
            </target>
            
+  
+   
    
            <target name="jar" depends="run-junit">
                <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
