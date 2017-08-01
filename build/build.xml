@@ -50,14 +50,14 @@
            </target>
 
 
-           <target name="run-junitt" >
+           <target name="run-junit" >
                <junit>
                    <classpath>
                        <pathelement location="./junit.jar"/>
                        <pathelement location="./ant-junit4-1.10.1.jar"/>
                    </classpath>
                    <formatter type="plain" usefile="false" /> <!-- to screen -->
-                   <formatter type="plain" /> <!-- to file -->
+                   <formatter type="xml" /> <!-- to file -->
                    <test name = "${test-class}" todir="${test-reports}"/>
                </junit>
            </target>

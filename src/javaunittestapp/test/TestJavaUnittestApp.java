@@ -7,7 +7,6 @@ package javaunittestapp.test;
 import javaunittestapp.code.JavaUnittestApp;
 import junit.framework.TestCase;
 
-
 /**
  *
  * @author David
@@ -19,7 +18,7 @@ public class TestJavaUnittestApp extends TestCase{
         JavaUnittestApp customer1 = new JavaUnittestApp();
         customer1.setFirstName("John");
         customer1.setLastName("Doe");
-        assertEquals("John Doeeeeeeeeeeeeeeeeeeeeeeee" , customer1.getCustomerName());
+        assertEquals("John Doe" , customer1.getCustomerName());
     }
     
     
