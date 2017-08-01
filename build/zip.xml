@@ -27,7 +27,7 @@
                <java jar="${jar}/${app-name}.jar" fork="true"/>
            </target>
     
-        <target name="inform" depends="run">
-            <echo>Finished the job</echo>
-        </target>
+	        <target name="inform" depends="run">
+	            <echo>Finished the job</echo>
+	        </target>
        </project>
