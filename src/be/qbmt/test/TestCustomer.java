@@ -24,7 +24,7 @@ public class TestCustomer extends TestCase{
     public void testGetCustomerName2() {
         Customer customer2 = new Customer();
         customer2.setFirstName("Elvis");
-        customer2.setLastName(Elvis PresleyJohn Doe" , customer2.getCustomerName());
+        customer2.setLastName("Elvis PresleyJohn Doe" , customer2.getCustomerName());
     }
     
     
