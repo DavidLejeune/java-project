@@ -65,7 +65,7 @@
 					          </batchtest>-->
                     
                     
-                   <test name="${test-class}" fork="yes" todir="${test-reports}">
+                   <test name="${test-class}" fork="yes" todir="${test-reports}" />
                    
 
                 
