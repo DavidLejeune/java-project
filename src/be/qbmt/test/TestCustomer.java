@@ -32,7 +32,7 @@ public class TestCustomer extends TestCase{
         Customer customer3 = new Customer();
         customer3.setFirstName("Abu Bakr");
         customer3.setLastName("Al Bagdadi");
-        assertEquals("Abu Bakr Al Bagdadi" , customer3.getCustomerName());
+        assertEquals("Abu BakrAl Bagdadi" , customer3.getCustomerName());
     }
     
 }
