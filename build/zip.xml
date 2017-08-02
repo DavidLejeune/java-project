@@ -15,7 +15,12 @@
         <property name="app-name"  value="APP-NAME"/>
         <property name="junit-jar" location="../lib/junit.jar"/>
     
-           <target name="jar">
+    
+	       <target name="compile">
+	               <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" classpath="${junit-jar}"/>
+	       </target>
+    
+           <target name="jar" depends="compile">
                <jar destfile="${jar}/${app-name}.jar" basedir="${bin}">
                    <manifest>
                        <attribute name="Main-Class" value="${main-class}"/>
