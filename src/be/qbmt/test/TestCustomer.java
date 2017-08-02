@@ -25,7 +25,7 @@ public class TestCustomer extends TestCase{
         Customer customer2 = new Customer();
         customer2.setFirstName("Elvis");
         customer2.setLastName("Presley");
-        assertEquals("Elvis Presley" , customer2.getCustomerName());
+        assertEquals("Elvis Presleyyyyyyyy" , customer2.getCustomerName());
     }
 
     public void testGetCustomerName3() {
